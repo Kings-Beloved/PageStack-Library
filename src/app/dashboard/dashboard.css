@@ -1,0 +1,477 @@
+/* @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"); */
+
+/* Local Theme Variables */
+:host {
+  --nav-bg: #14161e;
+  --nav-border: #232733;
+  --input-bg: #0c0d12;
+  --color-gold: #E5A93C;
+  --color-gold-hover: #d49a32;
+  --text-primary: #ffffff;
+  --text-muted: #8c93a6;
+}
+
+/* Base Header Layout */
+.dashboard-navbar {
+  background-color: var(--nav-bg) !important;
+  border-bottom: 1px solid var(--nav-border) !important;
+  z-index: 1040;
+  padding: 0.5rem 1.25rem;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* Left Brand Styling */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.brand-badge {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-gold);
+  color: #0c0d12;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.brand-name {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.brand-highlight {
+  color: var(--color-gold);
+}
+
+/* Center Search Command Bar */
+.navbar-center {
+  flex-grow: 1;
+  max-width: 580px;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-pill-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--input-bg);
+  border: 1px solid var(--nav-border);
+  border-radius: 999px;
+  padding: 4px 6px 4px 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-pill-wrapper:focus-within {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(229, 169, 60, 0.15);
+}
+
+.search-icon {
+  color: var(--text-muted);
+  margin-right: 0.5rem;
+}
+
+.search-field {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.search-field::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-search-gold {
+  background-color: var(--color-gold) !important;
+  color: #000000 !important;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  border-radius: 999px !important;
+  padding: 0.35rem 1rem !important;
+  border: none !important;
+  white-space: nowrap;
+}
+
+.btn-search-gold:hover {
+  background-color: var(--color-gold-hover) !important;
+}
+
+/* Right Side Controls */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.icon-btn {
+  color: var(--text-muted) !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0.4rem 0.6rem !important;
+}
+
+.icon-btn:hover {
+  color: var(--text-primary) !important;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-gold);
+  border-radius: 50%;
+}
+
+.v-divider {
+  width: 1px;
+  height: 22px;
+  background-color: var(--nav-border);
+}
+
+/* User Profile Trigger */
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent !important;
+  border: none !important;
+  padding: 4px 8px !important;
+  border-radius: 999px !important;
+}
+
+.profile-trigger:hover {
+  background-color: var(--nav-border) !important;
+}
+
+.avatar-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-details {
+  text-align: left;
+  line-height: 1.1;
+}
+
+.profile-fullname {
+  display: block;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.825rem;
+}
+
+.profile-tier {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.profile-chevron {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+/* Custom Dropdown Overrides */
+.dark-dropdown-menu {
+  background-color: var(--nav-bg) !important;
+  border: 1px solid var(--nav-border) !important;
+  border-radius: 10px !important;
+  padding: 0.5rem 0 !important;
+  min-width: 200px;
+}
+
+.dropdown-header-custom {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--nav-border);
+  margin-bottom: 0.25rem;
+}
+
+.user-heading {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.user-subheading {
+  margin: 0;
+  font-size: 0.725rem;
+  color: var(--text-muted);
+}
+
+.custom-item {
+  color: var(--text-primary) !important;
+  font-size: 0.85rem !important;
+  padding: 0.5rem 1rem !important;
+  cursor: pointer;
+}
+
+.custom-item:hover {
+  background-color: var(--nav-border) !important;
+}
+
+/* Responsive Fixes for Extra-Small Screens (Mobile DevTools) */
+@media (max-width: 576px) {
+
+  /* 1. Navbar Adjustments */
+  .navbar-container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    gap: 0.5rem;
+  }
+
+  .brand-name {
+    font-size: 1.1rem !important;
+  }
+
+  .profile-trigger {
+    padding: 0.25rem 0.4rem !important;
+  }
+
+  /* 2. Welcome Header & Navigation Tabs */
+  .dashboard-container h2 {
+    font-size: 1.15rem !important;
+    word-break: break-word;
+  }
+
+  .btn-group {
+    width: 100%;
+    display: flex;
+  }
+
+  .btn-group .btn {
+    flex: 1;
+    font-size: 0.8rem !important;
+    padding: 0.375rem 0.5rem !important;
+  }
+
+  /* 3. Search & Filter Inputs */
+  .search-form {
+    max-width: 100% !important;
+  }
+
+  .search-pill-wrapper {
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  /* Force filter buttons to flex evenly without overflowing */
+  .col-12.col-sm-4.col-md-3.d-flex {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .col-12.col-sm-4.col-md-3.d-flex .btn {
+    font-size: 0.85rem !important;
+    padding: 0.4rem 0.5rem !important;
+  }
+
+  /* 4. Book Cards Grid Spacing */
+  .book-card {
+    padding: 0.75rem !important;
+  }
+
+  .book-cover-container img {
+    max-height: 180px;
+    object-fit: contain;
+  }
+}
+
+/* Navbar Specific Mobile Responsiveness (Fixes 320px Overflow) */
+@media (max-width: 576px) {
+  /* Prevent header padding from blowing out width */
+  .dashboard-navbar {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  .navbar-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.25rem !important;
+    width: 100% !important;
+  }
+
+  /* Shrink brand text & icon gap */
+  .navbar-left {
+    gap: 0.35rem !important;
+    flex-shrink: 0;
+  }
+
+  .brand-name {
+    font-size: 1rem !important;
+  }
+
+  /* Shrink search bar container in navbar header */
+  .navbar-center {
+    flex-grow: 1;
+    min-width: 0; /* Allows inputs inside flexbox to shrink properly */
+    margin: 0 0.25rem;
+  }
+
+  .search-pill-wrapper {
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  .search-field {
+    font-size: 0.75rem !important;
+    width: 100% !important;
+  }
+
+  /* Compact profile badge and notifications on far right */
+  .navbar-right {
+    flex-shrink: 0;
+    gap: 0.25rem !important;
+  }
+
+  .profile-trigger {
+    padding: 0.2rem 0.3rem !important;
+  }
+
+  .avatar-badge {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .profile-chevron {
+    font-size: 0.7rem !important;
+  }
+}
+
+/* Hide the top navbar search bar on mobile screens */
+@media (max-width: 768px) {
+  .navbar-center {
+    display: none !important;
+  }
+}
+
+
+
+
+
+
+/* Container Spacing */
+.dashboard-container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 576px) {
+  .dashboard-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Card Styling */
+.book-card {
+  background-color: #121212;
+  border-radius: 8px;
+  padding: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.book-cover-container {
+  height: 200px;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.book-cover-img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Custom Buttons */
+.btn-dark-red {
+  background-color: #8B0000;
+  color: #ffffff;
+  border: none;
+  font-size: 0.85rem;
+}
+
+.btn-dark-red:hover {
+  background-color: #700000;
+  color: #ffffff;
+}
+
+.btn-gold {
+  background-color: #E5A93C;
+  color: #111111;
+  font-weight: 600;
+  border: none;
+  font-size: 0.85rem;
+}
+
+.btn-gold:hover {
+  background-color: #d49a32;
+  color: #111111;
+}
+
+/* Modal Overlay Styling */
+.custom-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.custom-modal-dialog {
+  width: 100%;
+  max-width: 750px;
+  max-height: 90vh;
+  z-index: 1060;
+}

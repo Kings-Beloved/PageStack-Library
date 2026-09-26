@@ -1,0 +1,142 @@
+
+#newArrival{
+  margin-bottom: -2% !important;
+}
+.section-title-lined {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Pseudo-elements for left and right lines */
+.section-title-lined::before,
+.section-title-lined::after {
+  content: "";
+  flex: 1;
+  max-width: 250px; /* Adjust line length here */
+  height: 2px;
+  background-color: darkred; /* Deep Dark Red */
+  margin: 0 15px; /* Spacing between lines and text */
+}
+
+
+/* Container section matching your light homepage/dashboard body */
+/* Dark cohesive canvas matching navbar header */
+/* Off-white background matching web.dev design */
+/* Clean white background matching best-sellers section */
+/* Clean canvas */
+/* Base Section Setup */
+.how-it-works-section {
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 70px);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Section Heading (Matching "Make an Online Donation" font style) */
+.section-heading {
+  position: relative;
+  display: inline-block;
+  color: #1a1a1a;
+  font-family: inherit;
+  font-size: 1.85rem;
+  letter-spacing: -0.3px;
+}
+
+.section-heading::before,
+.section-heading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 140px;
+  height: 1px;
+  background-color: #8b0000;
+}
+
+.section-heading::before {
+  right: 100%;
+  margin-right: 24px;
+}
+
+.section-heading::after {
+  left: 100%;
+  margin-left: 24px;
+}
+
+/* Subtitle matching site form descriptions */
+.subtitle-text {
+  color: #6c757d !important;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+/* Compact Card Styling */
+.webdev-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: none !important;
+  box-shadow: none !important;
+  min-height: 260px;
+  transition: transform 0.2s ease;
+}
+
+.webdev-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Card Titles in Pure Sans-Serif */
+.card-title {
+  font-family: inherit;
+  color: #111111 !important;
+  font-size: 1.15rem;
+  letter-spacing: -0.2px;
+}
+
+/* Soft Gold Pill Icon Background */
+.icon-pill {
+  width: 64px;
+  height: 42px;
+  background-color: rgba(229, 169, 60, 0.18);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-gold {
+  color: #d4af37 !important;
+}
+
+/* Sharp Body Text */
+.card-desc {
+  color: #555555 !important;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* CTA Button */
+.btn-gold {
+  background-color: #e5a93c;
+  color: #000000;
+  border: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.btn-gold:hover {
+  background-color: #d49a2d;
+  color: #000000;
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .section-heading::before,
+  .section-heading::after {
+    width: 35px;
+  }
+}

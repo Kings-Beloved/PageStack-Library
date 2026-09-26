@@ -1,0 +1,128 @@
+<app-header></app-header>
+
+<header class="ps-hero-header">
+  <div class="container text-center text-white ps-hero-content">
+    <!-- Styled in matching Title Case with your main Landing Page Hero -->
+    <h1 class="ps-hero-title mb-2 gold-text">Make a Donation</h1>
+    <p class="ps-hero-subtitle">
+      Support our platform and enable us to provide quality digital reading access.
+    </p>
+    
+    <div class="ps-scroll-indicator mt-4">
+      <i class="bi bi-arrow-down-circle-fill"></i>
+    </div>
+  </div>
+</header>
+
+  <main class="ps-form-container py-5">
+    <div class="container max-width-md">
+      
+
+      <div class="mb-4 pb-2 border-bottom">
+        <h3 class="fw-bold text-dark mb-1">Make an Online Donation</h3>
+        <p class="text-muted small">Please complete the form below to support our platform infrastructure and community drives.</p>
+      </div>
+
+      <!-- Form Section -->
+      <form [formGroup]="donateForm" (ngSubmit)="donate()" class="ps-form-body">
+        
+        <!-- First Name & Last Name -->
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-md-6">
+            <label for="firstName" class="form-label ps-form-label">
+              First Name <span class="ps-asterisk">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="firstName" 
+              class="form-control ps-light-input" 
+              placeholder="First Name" 
+              formControlName="firstName">
+          </div>
+          
+          <div class="col-12 col-md-6">
+            <label for="lastName" class="form-label ps-form-label">
+              Last Name <span class="ps-asterisk">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="lastName" 
+              class="form-control ps-light-input" 
+              placeholder="Last Name" 
+              formControlName="lastName">
+          </div>
+        </div>
+
+        <!-- Email Address -->
+        <div class="mb-3">
+          <label for="email" class="form-label ps-form-label">
+            Email <span class="ps-asterisk">*</span>
+          </label>
+          <input 
+            type="email" 
+            id="email" 
+            class="form-control ps-light-input" 
+            placeholder="Email Address" 
+            formControlName="email">
+        </div>
+
+        <!-- Choose Donation Package / Tiers -->
+        <div class="mb-4">
+          <label class="form-label ps-form-label mb-2">
+            Choose donation amount <span class="ps-asterisk">*</span>
+          </label>
+
+          <div class="d-flex flex-column gap-2 ps-radio-group">
+            <label class="ps-radio-container">
+              <input type="radio" name="packageTier" value="2000" (change)="donateForm.patchValue({amount: 2000})">
+              <span class="ps-radio-checkmark"></span>
+              <span class="ps-radio-label">₦2,000 (Supporter)</span>
+            </label>
+
+            <label class="ps-radio-container">
+              <input type="radio" name="packageTier" value="5000" (change)="donateForm.patchValue({amount: 5000})">
+              <span class="ps-radio-checkmark"></span>
+              <span class="ps-radio-label">₦5,000 (Patron)</span>
+            </label>
+
+            <label class="ps-radio-container">
+              <input type="radio" name="packageTier" value="10000" (change)="donateForm.patchValue({amount: 10000})">
+              <span class="ps-radio-checkmark"></span>
+              <span class="ps-radio-label">₦10,000 (Sponsor)</span>
+            </label>
+
+            <label class="ps-radio-container">
+              <input type="radio" name="packageTier" value="25000" (change)="donateForm.patchValue({amount: 25000})">
+              <span class="ps-radio-checkmark"></span>
+              <span class="ps-radio-label">₦25,000 (Benefactor)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="amount" class="form-label ps-form-label">
+            Custom Amount (NGN) <i class="bi bi-info-circle-fill text-primary ms-1" title="Or enter any custom amount you wish to contribute"></i>
+          </label>
+          <input 
+            type="number" 
+            id="amount" 
+            class="form-control ps-light-input" 
+            placeholder="Enter custom amount" 
+            formControlName="amount">
+        </div>
+
+
+        <div class="row g-2 pt-2">
+          <div class="col-4 col-sm-3">
+            <button type="button" class="btn ps-btn-crimson w-100 py-2 fw-bold" (click)="donateForm.reset()">Clear</button>
+          </div>
+          <div class="col-8 col-sm-9">
+            <button type="submit" class="btn ps-btn-gold-action w-100 py-2 fw-bold">Proceed to Payment</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+
+<app-footer></app-footer>

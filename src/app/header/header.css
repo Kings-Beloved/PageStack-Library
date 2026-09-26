@@ -1,0 +1,42 @@
+/* Base navigation link styling */
+.transition-link {
+  color: #e2e8f0 !important;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle gold underline effect */
+.transition-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #D4AF37;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover State */
+.transition-link:hover {
+  color: #D4AF37 !important;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+}
+
+.transition-link:hover::after {
+  width: 100%;
+}
+
+/* Active Route State triggered by routerLinkActive="active" */
+.transition-link.active {
+  color: #D4AF37 !important;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+}
+
+.transition-link.active::after {
+  width: 100%;
+}

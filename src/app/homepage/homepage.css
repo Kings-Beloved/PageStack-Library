@@ -1,0 +1,147 @@
+/* #bgHolder{
+    height: 60vh;
+    width: 100vw;
+    background-color: black;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGXbxybu7G43X37_LnKAoPAP1_nDNiSjWSEduGUErA3OR5u8_Jss_Z8sug&s=10);
+} */
+#homepageWrapper{
+  width: 100vw;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+
+/* BEST SELLER */
+
+#newArrival{
+  margin-bottom: -2% !important;
+}
+.section-title-lined {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Pseudo-elements for left and right lines */
+.section-title-lined::before,
+.section-title-lined::after {
+  content: "";
+  flex: 1;
+  max-width: 250px; /* Adjust line length here */
+  height: 2px;
+  background-color: darkred; /* Deep Dark Red */
+  margin: 0 15px; /* Spacing between lines and text */
+}
+
+.hero-section {
+  position: relative;
+  min-height: 60vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3.5rem 1.5rem;
+  box-sizing: border-box;
+  
+  /* High-contrast dark library backdrop */
+  background: 
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, rgba(10, 10, 10, 0.9) 100%),
+    url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGXbxybu7G43X37_LnKAoPAP1_nDNiSjWSEduGUErA3OR5u8_Jss_Z8sug&s=10) center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Editorial Title */
+.hero-title {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+}
+
+/* Pure Rich Gold Effect */
+.gold-text {
+  color: #FFD700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Body Text */
+.hero-description {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.65;
+  color: #e2e8f0;
+  max-width: 620px;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Button Group */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Base Button Reset & Styles */
+.btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  border: none;
+  outline: none; /* Removes any default browser blue focus outline */
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn:focus,
+.btn:focus-visible {
+  outline: none; /* Explicit removal of blue focus glow */
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.4); /* Subtle gold focus ring for accessibility */
+}
+
+/* Gold Primary Button */
+.btn-gold {
+  background: #d4af37;
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+.btn-gold:hover {
+  background: #e5be42;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.55);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+}

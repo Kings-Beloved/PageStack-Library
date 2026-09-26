@@ -1,0 +1,170 @@
+/* Base Canvas */
+.ps-donate-page-wrapper {
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+/* Hero Section with Dark Mask Overlay */
+.ps-hero-header {
+  width: 100%;
+  height: 48vh;
+  min-height: 340px;
+  background: linear-gradient(rgba(10, 11, 15, 0.82), rgba(10, 11, 15, 0.82)), 
+              url('https://images.unsplash.com/photo-1523054147397-21c07b58c90e?fm=jpg&q=60&w=3000&auto=format&fit=crop');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+/* Ensure exact match to landing page hero heading */
+.ps-hero-title {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; /* Match your landing serif font */
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: #D4AF37; /* Exact PageStack Gold */
+  letter-spacing: -0.01em;
+  text-transform: none; /* Matches 'Your Open Source Library' title case casing style */
+}
+
+/* Subtitle uses clean body sans-serif */
+.ps-hero-subtitle {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 650px;
+  margin: 0.75rem auto 0;
+}
+
+.ps-scroll-indicator {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.ps-scroll-indicator:hover {
+  color: #D4AF37;
+  transform: translateY(3px);
+}
+
+/* Layout & Container Constraints */
+.max-width-md {
+  max-width: 720px;
+}
+
+/* Form Styling & Labels */
+.ps-form-label {
+  color: #27272a;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.ps-asterisk {
+  color: #dc2626;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* Crisp Clean Light Inputs */
+.ps-light-input {
+  background-color: #ffffff;
+  border: 1px solid #d4d4d8;
+  color: #18181b;
+  font-size: 0.925rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 6px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.ps-light-input::placeholder {
+  color: #a1a1aa;
+}
+
+.ps-light-input:focus {
+  background-color: #ffffff;
+  color: #18181b;
+  border-color: #18181b;
+  box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.08);
+  outline: none;
+}
+
+/* Custom Radio Package Selector */
+.ps-radio-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #18181b;
+  user-select: none;
+}
+
+.ps-radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ps-radio-checkmark {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #ffffff;
+  border: 1px solid #a1a1aa;
+  border-radius: 50%;
+}
+
+.ps-radio-container:hover input ~ .ps-radio-checkmark {
+  border-color: #18181b;
+}
+
+.ps-radio-container input:checked ~ .ps-radio-checkmark {
+  background-color: #ffffff;
+  border: 5px solid #18181b;
+}
+
+.ps-radio-label {
+  font-weight: 500;
+}
+
+/* Retained Dashboard Button Styles */
+.ps-btn-crimson {
+  background-color: black;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: opacity 0.15s ease;
+}
+
+.ps-btn-crimson:hover {
+  opacity: 0.9;
+  color: #ffffff;
+}
+
+.ps-btn-gold-action {
+  background-color: #D4AF37;
+  color: #0d0e12;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: opacity 0.15s ease;
+}
+
+.ps-btn-gold-action:hover {
+  opacity: 0.9;
+  color: #0d0e12;
+}
+
+

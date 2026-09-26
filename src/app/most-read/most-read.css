@@ -1,0 +1,65 @@
+/* --- Horizontal Scroll Viewport --- */
+.carousel-viewport {
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.carousel-viewport::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.carousel-card-wrapper {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+/* --- Card Base & Hover --- */
+.book-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8) !important;
+  border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
+/* --- Dark Red Button --- */
+.btn-read-now {
+  background-color: #8b0000;
+  color: #ffffff !important;
+  border: 1px solid #a71d2a;
+  transition: all 0.2s ease;
+}
+
+.btn-read-now:hover {
+  background-color: #a71d2a;
+  box-shadow: 0 0 10px rgba(167, 29, 42, 0.5);
+}
+
+/* --- Bottom Middle Navigation Controls --- */
+.btn-nav-control {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+  border: 2px solid #D4AF37;
+  color: #D4AF37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.btn-nav-control:hover {
+  background-color: #D4AF37;
+  color: #0d0e12;
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}

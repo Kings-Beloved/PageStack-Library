@@ -1,0 +1,73 @@
+<div class="container py-5 text-white" style="min-height: 80vh;">
+
+  @if (isLoading) {
+    <!-- Loading State -->
+    <div class="text-center my-5 py-5">
+      <div class="spinner-border" role="status" style="color: #D4AF37; width: 3rem; height: 3rem;">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="mt-3 text-secondary fw-semibold">Fetching book details...</p>
+    </div>
+  } @else if (errorMessage) {
+    <!-- Error State -->
+    <div class="alert alert-danger text-center my-4 border-0 shadow-sm" role="alert" style="background-color: #2c0b0e; color: #ea868f;">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ errorMessage }}
+    </div>
+  } @else if (bookData) {
+    <!-- Book Details View -->
+    <div class="row g-4 align-items-start mt-2">
+      
+      <!-- Book Cover Image -->
+      <div class="col-md-4 text-center">
+        <img 
+          [src]="getCoverUrl()" 
+          [alt]="getTitle()" 
+          class="img-fluid rounded-3 shadow-lg border"
+          style="max-height: 480px; width: 100%; object-fit: cover; border-color: rgba(255, 255, 255, 0.1) !important;"
+        >
+      </div>
+
+      <!-- Book Info Content -->
+      <div class="col-md-8 ps-md-4">
+        <h1 class="fw-bold mb-3 display-6" style="color: #D4AF37;">
+          {{ getTitle() }}
+        </h1>
+
+        <!-- Subject tags if present -->
+        @if (bookData?.subjects && bookData.subjects.length > 0) {
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            @for (subject of bookData.subjects.slice(0, 5); track $index) {
+              <span class="badge rounded-pill bg-dark text-secondary border border-secondary px-3 py-2 small">
+                {{ subject }}
+              </span>
+            }
+          </div>
+        }
+
+        <!-- Book Description -->
+        <div class="mb-4">
+          <h5 class="fw-semibold text-light mb-2">Overview</h5>
+          <p class="text-secondary leading-relaxed fs-6" style="line-height: 1.7;">
+            {{ getDescription() }}
+          </p>
+        </div>
+
+        <!-- Call to Actions -->
+        <div class="d-flex flex-wrap gap-3 mt-4 pt-2 border-top" style="border-color: rgba(255, 255, 255, 0.1) !important;">
+          <a 
+            [href]="'https://openlibrary.org/works/' + selectedBookId" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="btn px-4 py-2 fw-semibold rounded-pill text-decoration-none shadow-sm"
+            style="background-color: #D4AF37; color: #121212;"
+          >
+            <i class="bi bi-book-half me-1"></i> Read on OpenLibrary
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  }
+
+</div>

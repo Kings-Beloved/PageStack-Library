@@ -1,0 +1,373 @@
+<header class="dashboard-navbar sticky-top">
+  <div class="navbar-container">
+    
+    <!-- Brand & Mobile Toggle -->
+    <div class="navbar-left">
+      <button class="btn icon-btn d-lg-none" (click)="toggleMobileMenu()" type="button" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-4"></i>
+      </button>
+
+      <a class="brand-link" href="#">
+        <div class="brand-badge">
+          <i class="bi bi-book-half"></i>
+        </div>
+        <span class="brand-name">Page<span class="brand-highlight">Stack</span></span>
+      </a>
+    </div>
+
+    <!-- Center Search Command Center -->
+    <div class="navbar-center">
+      <form [formGroup]="selectGenre" (ngSubmit)="searchBook()" class="search-form">
+        <div class="search-pill-wrapper">
+          <i class="bi bi-search search-icon"></i>
+          <input 
+            type="text" 
+            formControlName="searchQuery" 
+            class="search-field" 
+            placeholder="Search book title or author..."
+          />
+          <button type="submit" class="btn btn-search-gold d-none d-sm-inline-flex" [disabled]="isLoading">
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Right Controls & Profile -->
+    <div class="navbar-right">
+      <button class="btn icon-btn position-relative" type="button" title="Notifications">
+        <i class="bi bi-bell fs-5"></i>
+        <span class="notification-badge"></span>
+      </button>
+
+      <div class="v-divider d-none d-sm-block"></div>
+
+      <!-- User Dropdown -->
+      <div class="dropdown">
+        <button class="btn profile-trigger" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="avatar-badge">
+            {{ firstName ? firstName[0] : 'O' }}{{ lastName ? lastName[0] : 'F' }}
+          </div>
+          <div class="profile-details d-none d-md-block">
+            <span class="profile-fullname">{{ firstName || 'Olujinmi' }} {{ lastName || 'Faith' }}</span>
+            <span class="profile-tier">Reader Pass</span>
+          </div>
+          <i class="bi bi-chevron-down profile-chevron"></i>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end dark-dropdown-menu shadow-lg">
+          <li class="dropdown-header-custom">
+            <p class="user-heading">{{ firstName || 'Olujinmi' }} {{ lastName || 'Faith' }}</p>
+            <p class="user-subheading">Active Subscription</p>
+          </li>
+          <li>
+            <a class="dropdown-item custom-item" (click)="switchTab('library')" style="cursor: pointer;">
+              <i class="bi bi-bookmark text-gold me-2"></i> My Library ({{ myLibrary.length }})
+            </a>
+          </li>
+          <li><a class="dropdown-item custom-item" href="#"><i class="bi bi-gear text-gold me-2"></i> Settings</a></li>
+          <li><hr class="dropdown-divider border-secondary"></li>
+          <li><a class="dropdown-item custom-item text-danger" (click)="onLogOut()"><i class="bi bi-box-arrow-right me-2"></i> Sign Out</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</header>
+
+
+<div class="py-4 bg-light min-vh-100">
+  <div class="container-fluid dashboard-container">
+    
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 pb-2 border-bottom">
+      <div>
+        <p class="text-uppercase fw-bold mb-1 small" style="color: #E5A93C;">Dashboard</p>
+        <h2 class="h4 fw-bold mb-0 text-dark">Welcome, {{ firstName }} {{ lastName }}</h2>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="mt-3 mt-md-0">
+        <div class="btn-group" role="group">
+          <button 
+            type="button" 
+            class="btn btn-sm" 
+            [class.btn-dark]="activeTab === 'catalog'" 
+            [class.btn-outline-dark]="activeTab !== 'catalog'"
+            (click)="switchTab('catalog')"
+          >
+            Catalog
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-sm position-relative" 
+            [class.btn-dark]="activeTab === 'library'" 
+            [class.btn-outline-dark]="activeTab !== 'library'"
+            (click)="switchTab('library')"
+          >
+            My Library
+            @if (myLibrary.length > 0) {
+              <span class="badge bg-danger ms-1">{{ myLibrary.length }}</span>
+            }
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATALOG VIEW -->
+    @if (activeTab === 'catalog') {
+      <form [formGroup]="selectGenre" (ngSubmit)="searchBook()" class="mb-4">
+        <div class="row g-2 align-items-center">
+          <div class="col-12 col-md-5">
+            <input type="text" formControlName="searchQuery" class="form-control" placeholder="Search book title or Author">
+          </div>
+          
+          <div class="col-12 col-sm-8 col-md-4">
+            <select formControlName="selectedGenre" class="form-select" (change)="applyGenre()">
+              <option value="" disabled selected>Select a Genre</option>
+              
+              <optgroup label="Fiction">
+                <option value="fiction">General Fiction</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="science_fiction">Science Fiction</option>
+                <option value="romance">Romance</option>
+                <option value="thriller">Thriller & Suspense</option>
+                <option value="mystery_and_detective_stories">Mystery & Detective</option>
+                <option value="historical_fiction">Historical Fiction</option>
+                <option value="young_adult_fiction">Young Adult (YA)</option>
+              </optgroup>
+
+              <optgroup label="Non-Fiction">
+                <option value="biography">Biography & Memoir</option>
+                <option value="history">History</option>
+                <option value="business">Business & Economics</option>
+                <option value="science">Science & Technology</option>
+                <option value="computer_science">Computer Science & Programming</option>
+                <option value="psychology">Psychology</option>
+                <option value="philosophy">Philosophy</option>
+                <option value="self-help">Self-Help & Personal Growth</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="col-12 col-sm-4 col-md-3 d-flex gap-2">
+            <button type="submit" class="btn btn-gold flex-fill" [disabled]="isLoading">
+              Search
+            </button>
+            <button type="button" class="btn btn-outline-dark flex-fill" (click)="applyGenre()">
+              Filter
+            </button>
+          </div>
+        </div>
+      </form>
+
+      @if (isLoading) {
+        <div class="text-center py-5">
+          <div class="spinner-border text-warning" role="status"></div>
+          <h4 class="mt-3 fs-5 text-muted">Loading books...</h4>
+        </div>
+      } 
+      
+      @else if (!isLoading && books.length > 0) {
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+          @for (book of books; track $index) {
+            <div class="col">
+              <div class="book-card h-100 d-flex flex-column text-white shadow-sm">
+                
+                <div class="book-cover-container mb-2">
+                  <img 
+                    [src]="book.cover_i ? 'https://covers.openlibrary.org/b/id/' + book.cover_i + '-M.jpg' : 'assets/placeholder.png'" 
+                    [alt]="book.title" 
+                    class="book-cover-img rounded"
+                  />
+                </div>
+              
+                <div class="d-flex flex-column flex-grow-1">
+                  <h6 class="fw-bold text-truncate mb-0" [title]="book.title">{{ book.title }}</h6>
+                  <p class="small text-white-50 text-truncate mb-2">
+                    {{ book.author_name ? book.author_name[0] : 'Unknown Author' }}
+                  </p>
+                  
+                  <p class="small mb-3">
+                    <strong>Access:</strong> 
+                    <span [style.color]="book.ebook_access === 'printdisabled' ? 'gray' : '#28a745'">
+                      {{ book.ebook_access === 'printdisabled' ? 'RESTRICTED' : 'FREE' }}
+                    </span>
+                  </p>
+
+                  <div class="mt-auto d-flex gap-2">
+                    <button 
+                      class="btn btn-sm btn-dark-red flex-fill py-1 px-2" 
+                      (click)="viewBookDetails(book)"
+                    >
+                      View Details
+                    </button>
+
+                    <button 
+                      class="btn btn-sm btn-gold flex-fill py-1 px-2" 
+                      [disabled]="book.ebook_access === 'printdisabled'"
+                      (click)="handleReadNow(book)"
+                    >
+                      {{ book.ebook_access === 'printdisabled' ? 'Locked' : 'Read Now' }}
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    }
+
+    <!-- MY LIBRARY VIEW -->
+    @if (activeTab === 'library') {
+      <div class="mb-3 d-flex align-items-center justify-content-between">
+        <h5 class="fw-bold mb-0 text-dark">Saved Books ({{ myLibrary.length }})</h5>
+        <button class="btn btn-sm btn-outline-secondary" (click)="switchTab('catalog')">
+          <i class="bi bi-plus-lg me-1"></i> Browse More Books
+        </button>
+      </div>
+
+      @if (myLibrary.length === 0) {
+        <div class="text-center py-5 border rounded bg-white my-3">
+          <i class="bi bi-bookmark-heart text-muted display-4"></i>
+          <h5 class="mt-3 text-secondary">Your library is empty</h5>
+          <p class="text-muted small">Click <strong>Read Now</strong> on any book in the catalog to save it to your personal library.</p>
+          <button class="btn btn-gold btn-sm mt-2" (click)="switchTab('catalog')">Explore Catalog</button>
+        </div>
+      } @else {
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+          @for (book of myLibrary; track $index) {
+            <div class="col">
+              <div class="book-card h-100 d-flex flex-column text-white shadow-sm position-relative">
+                
+                <div class="book-cover-container mb-2">
+                  <img 
+                    [src]="book.cover_i ? 'https://covers.openlibrary.org/b/id/' + book.cover_i + '-M.jpg' : 'assets/placeholder.png'" 
+                    [alt]="book.title" 
+                    class="book-cover-img rounded"
+                  />
+                </div>
+              
+                <div class="d-flex flex-column flex-grow-1">
+                  <h6 class="fw-bold text-truncate mb-0" [title]="book.title">{{ book.title }}</h6>
+                  <p class="small text-white-50 text-truncate mb-2">
+                    {{ book.author_name ? book.author_name[0] : 'Unknown Author' }}
+                  </p>
+                  
+                  <div class="mt-auto d-flex gap-2">
+                    <button 
+                      class="btn btn-sm btn-gold flex-fill py-1 px-2" 
+                      (click)="handleReadNow(book)"
+                    >
+                      Read Now
+                    </button>
+
+                    <button 
+                      class="btn btn-sm btn-outline-danger py-1 px-2" 
+                      title="Remove from Library"
+                      (click)="removeFromLibrary(book.key, $event)"
+                    >
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    }
+
+  </div>
+</div>
+
+<!-- BOOK DETAILS MODAL -->
+@if (isModalOpen) {
+  <div class="custom-modal-backdrop" (click)="closeModal()">
+    <div class="custom-modal-dialog" (click)="$event.stopPropagation()">
+      <div class="modal-content bg-dark text-white border border-secondary shadow-lg rounded-3">
+        
+        <div class="modal-header border-secondary p-3">
+          <h5 class="modal-title fw-bold" style="color: #E5A93C;">Book Details</h5>
+          <button type="button" class="btn-close btn-close-white" (click)="closeModal()"></button>
+        </div>
+
+        <div class="modal-body p-3 p-md-4">
+          @if (isModalLoading) {
+            <div class="text-center py-4">
+              <div class="spinner-border text-warning" role="status"></div>
+              <p class="text-white-50 mt-2 small">Loading details...</p>
+            </div>
+          }
+
+          @if (!isModalLoading && selectedBook) {
+            <div class="row g-3 align-items-start">
+              <div class="col-12 col-md-4 text-center">
+                <img 
+                  [src]="selectedBookCover ? 'https://covers.openlibrary.org/b/id/' + selectedBookCover + '-L.jpg' : 'assets/placeholder.png'" 
+                  [alt]="selectedBook.title"
+                  class="img-fluid rounded border border-secondary shadow-sm"
+                  style="max-height: 220px; object-fit: contain;"
+                />
+              </div>
+
+              <div class="col-12 col-md-8">
+                <h5 class="fw-bold text-white mb-2">{{ selectedBook.title }}</h5>
+                
+                <div class="my-2 text-white-50 small" style="max-height: 150px; overflow-y: auto;">
+                  <p class="mb-0">
+                    {{ 
+                      selectedBook.description?.value || 
+                      selectedBook.description || 
+                      'No summary available for this title.' 
+                    }}
+                  </p>
+                </div>
+
+                @if (selectedBook.subjects) {
+                  <div class="mt-2">
+                    <span class="small fw-bold text-white d-block mb-1">Subjects:</span>
+                    <div class="d-flex flex-wrap gap-1">
+                      @for (subject of selectedBook.subjects.slice(0, 4); track $index) {
+                        <span class="badge bg-secondary bg-opacity-50">
+                          {{ subject }}
+                        </span>
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="modal-footer border-secondary p-3 d-flex justify-content-between align-items-center">
+          <span class="small">
+            <strong>Access:</strong> 
+            <span [style.color]="activeBook?.ebook_access === 'printdisabled' ? 'gray' : '#28a745'">
+              {{ activeBook?.ebook_access === 'printdisabled' ? 'RESTRICTED' : 'FREE' }}
+            </span>
+          </span>
+
+          <div class="d-flex gap-2">
+            @if (activeBook) {
+              <button 
+                type="button" 
+                class="btn btn-sm btn-gold px-3" 
+                [disabled]="activeBook.ebook_access === 'printdisabled'"
+                (click)="handleReadNow(activeBook)"
+              >
+                {{ activeBook.ebook_access === 'printdisabled' ? 'Locked' : 'Read Now' }}
+              </button>
+            }
+            <button type="button" class="btn type-button btn-sm btn-secondary px-3" (click)="closeModal()">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+}

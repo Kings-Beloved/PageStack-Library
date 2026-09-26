@@ -1,0 +1,140 @@
+
+  <app-header></app-header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Your Open Source <span class="gold-text">Library</span>
+      </h1>
+      
+      <p class="hero-description">
+        Discover, read, and explore an ever-expanding universe of books. From timeless classics to cutting-edge technical guides—all freely accessible at your fingertips.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#browse" class="btn btn-gold">Get started</a>
+        <a href="#about" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Arrivals Section -->
+  <section id="newArrival" class="text-center pt-5 mt-2">
+  <h2 class="section-title-lined">Best-Sellers</h2>
+</section>
+
+  <!-- Books List Grid Container -->
+  <div class="container pb-4">
+    <h2 class="text-white mb-4">Books List</h2>
+
+    @if (!bookData()) {
+      <div class="text-center py-5">
+        <div class="spinner-border text-warning" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <h5 class="text-secondary mt-3">Loading Books.....</h5>
+      </div>
+    } 
+    @else if (bookData()) {
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        @for (book of bookData(); track $index) {
+          <div class="col">
+            <div class="card h-100 text-white border-0 shadow-sm book-card" style="background-color: #141414;">
+              
+              <div class="position-relative text-center p-3 overflow-hidden rounded-top" style="background-color: #1a1a1a;">
+                <span class="position-absolute top-0 start-0 m-2 badge bg-success text-white px-2 py-1 small fw-semibold" style="font-size: 0.68rem; letter-spacing: 0.5px;">
+                  FREE
+                </span>
+                <img 
+                  [src]="book.cover_i ? 'https://covers.openlibrary.org/b/id/' + book.cover_i + '-L.jpg' : 'https://via.placeholder.com/180x260?text=No+Cover'" 
+                  (error)="onImageError($event)"
+                  class="img-fluid rounded book-cover-img" 
+                  [alt]="book.title"
+                  style="height: 240px; object-fit: cover;"
+                >
+              </div>
+
+              <div class="card-body d-flex flex-column justify-content-between p-3">
+                <div>
+                  <h6 class="card-title text-truncate fw-bold mb-1" [title]="book.title">{{ book.title }}</h6>
+                  <p class="card-text text-secondary small mb-2">
+                    {{ book.author_name ? book.author_name[0] : 'Unknown Author' }}
+                  </p>
+                </div>
+
+                <div class="pt-2 border-top border-secondary border-opacity-25 d-flex align-items-center justify-content-between mt-2">
+                  <span class="fw-bold fs-6" style="color: #D4AF37;">
+                    FREE
+                  </span>
+                  
+                  <a routerLink="dashboard" routerLinkActive="active" class="btn btn-sm px-3 fw-semibold rounded-pill text-decoration-none" style="background-color: #D4AF37; color: #121212;">
+                    Read Now
+                  </a>
+                </div>
+              </div>
+
+            </div> 
+          </div>
+        }
+      </div>
+    }
+  </div> <!-- Books List container ends HERE -->
+
+  <!-- App Most Read placed at root level for full width -->
+  <app-most-read></app-most-read>
+
+<!-- White Feature / CTA Section -->
+<section class="py-4" style="background-color: #ffffff; border-top: 1px solid #e5e7eb;">
+  <div class="container py-2">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-7 text-center">
+        
+        <!-- Eyebrow Badge -->
+        <span class="badge rounded-pill px-3 py-2 small fw-bold mb-3 d-inline-flex align-items-center gap-2" 
+              style="background-color: #0d0e12; color: #D4AF37;">
+          <i class="bi bi-bell-fill"></i> STAY IN THE LOOP
+        </span>
+
+        <!-- Headline -->
+        <h2 class="fw-extrabold text-dark mb-3 fs-3" style="letter-spacing: -0.02em; color: #0d0e12 !important;">
+          Be the first to know about new releases and updates.
+        </h2>
+        
+        <!-- Subtitle -->
+        <p class="text-secondary small mb-4 mx-auto" style="max-width: 480px; line-height: 1.6; color: #4b5563 !important;">
+          Get monthly highlights on curated collections, platform features, and special announcements delivered straight to your inbox.
+        </p>
+
+        <!-- Inline Input + Button Group -->
+        <form (submit)="$event.preventDefault()" class="mx-auto" style="max-width: 460px;">
+          <div class="input-group input-group-lg shadow-sm rounded-3 overflow-hidden" style="border: 1px solid #d1d5db;">
+            <input 
+              type="email" 
+              class="form-control border-0 text-dark px-3 py-2.5 fs-6" 
+              placeholder="Enter your email address"
+              style="background-color: #f9fafb;"
+            >
+            <button 
+              type="submit" 
+              class="btn px-4 fw-bold text-uppercase"
+              style="background-color: #D4AF37; color: #0d0e12 !important; border: none; font-size: 0.85rem; letter-spacing: 0.05em;"
+            >
+              Subscribe
+            </button>
+          </div>
+          
+          <p class="text-muted small mb-0 mt-2" style="font-size: 0.75rem; color: #6b7280 !important;">
+            No spam, ever. Unsubscribe with one click anytime.
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer -->
+
+
+  <app-footer></app-footer>
+

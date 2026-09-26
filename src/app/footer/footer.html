@@ -1,0 +1,90 @@
+<footer class="site-footer pt-5 pb-4" style="background-color: #08090b; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+  <div class="container">
+    
+    <!-- Main Footer Grid -->
+    <div class="row g-4 pb-5 border-bottom border-secondary border-opacity-10">
+      
+      <!-- Dominant Brand Column -->
+      <div class="col-12 col-lg-5 pe-lg-5">
+        <a routerLink="/" class="text-decoration-none d-block mb-3">
+          <span class="brand-title">Page<span class="gold-accent">Stack</span></span>
+        </a>
+        
+        <p class="brand-description mb-4">
+          An open-source digital platform built to give readers direct access to curated book collections, technical documentation, and classic titles.
+        </p>
+        
+        <!-- Social Links -->
+        <div class="d-flex align-items-center gap-2">
+          <a href="#" class="btn-footer-social" aria-label="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+          <a href="#" class="btn-footer-social" aria-label="Twitter">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a href="#" class="btn-footer-social" aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="#" class="btn-footer-social" aria-label="Discord">
+            <i class="bi bi-discord"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation Column -->
+      <div class="col-6 col-md-3 col-lg-2 ms-lg-auto">
+        <h6 class="footer-heading">Platform</h6>
+        <ul class="list-unstyled footer-links mb-0">
+          <li><a href="#browse">Browse Catalog</a></li>
+          <li><a href="#newArrival">New Arrivals</a></li>
+          <li><a routerLink="/most-read">Trending Titles</a></li>
+          <li><a href="#">Categories</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources Column -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <h6 class="footer-heading">Resources</h6>
+        <ul class="list-unstyled footer-links mb-0">
+          <li><a href="#about">About Project</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">API Access</a></li>
+          <li><a href="#">License</a></li>
+        </ul>
+      </div>
+
+      <!-- Stay Updated Column -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <h6 class="footer-heading">Stay Updated</h6>
+        <p class="footer-subtext mb-3">
+          Subscribe for updates on new additions and features.
+        </p>
+        <form (submit)="$event.preventDefault()">
+          <div class="input-group">
+            <input 
+              type="email" 
+              class="form-control footer-input" 
+              placeholder="Enter your email"
+            >
+            <button class="btn btn-gold-action px-3" type="submit">
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between pt-4 text-secondary small gap-3">
+      <span class="footer-copyright">&copy; 2026 PageStack, Inc. All rights reserved.</span>
+      
+      <div class="d-flex align-items-center gap-4">
+        <a href="#" class="footer-legal-link">Privacy Policy</a>
+        <a href="#" class="footer-legal-link">Terms of Service</a>
+        <a href="#" class="footer-legal-link">Cookies Settings</a>
+      </div>
+    </div>
+
+  </div>
+</footer>

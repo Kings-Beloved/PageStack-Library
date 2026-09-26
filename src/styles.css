@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+
+:root {
+  /* PageStack Palette Definitions */
+  --ps-gold-primary: #eab308;    /* Exact warm gold used in homepage title/search CTA */
+  --ps-gold-hover: #d97706;      /* Darker shade for hover states */
+  --ps-bg-dark: #121318;         /* Navbar & dark overlay base */
+  --ps-card-bg: #181920;        /* Dark card containers */
+  --ps-text-light: #f4f4f5;      /* Primary light text */
+  --ps-text-muted: #a1a1aa;      /* Secondary paragraph/subtitle text */
+  --ps-btn-clear: #e4e4e7;       /* Neutral gray for secondary form actions */
+}
+
+/* Page Title Font & Color Alignment */
+.ps-hero-title {
+  font-family: 'Playfair Display', Georgia, serif; /* Serifs match homepage header */
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: var(--ps-gold-primary) !important;
+  letter-spacing: -0.01em;
+}
+
+/* Button Color Hierarchy Correction */
+.ps-btn-gold-action {
+  background-color: var(--ps-gold-primary) !important;
+  color: #000000 !important;
+  border: none;
+  font-weight: 700;
+}
+
+.ps-btn-gold-action:hover {
+  background-color: var(--ps-gold-hover) !important;
+}
+
+.ps-btn-secondary-clear {
+  background-color: var(--ps-btn-clear) !important;
+  color: #27272a !important;
+  border: none;
+  font-weight: 600;
+}
+
+.ps-btn-secondary-clear:hover {
+  background-color: #d4d4d8 !important;
+}

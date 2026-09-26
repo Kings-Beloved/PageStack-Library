@@ -1,0 +1,78 @@
+<p>Disclaimer Works</p>
+
+@if (isVisible) {
+    <div class="ps-modal-backdrop" (click)="dismissModal()">
+      <div class="ps-modal-card" (click)="$event.stopPropagation()">
+        
+        <!-- Top Accent Indicator (Enterprise Minimalist Line) -->
+        <div class="ps-modal-accent-bar"></div>
+    
+        <div class="ps-modal-content">
+          
+          <!-- Header -->
+          <div class="d-flex align-items-start justify-content-between mb-3">
+            <div class="d-flex align-items-center gap-2.5">
+              <div class="ps-icon-badge">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <div>
+                <h3 class="ps-modal-title">Platform & Content Terms</h3>
+                <p class="ps-modal-subtitle">PageStack Digital Library</p>
+              </div>
+            </div>
+            
+            <button type="button" class="ps-btn-close" (click)="dismissModal()" aria-label="Close">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+    
+          <!-- Content Body -->
+          <div class="ps-modal-body">
+            <p class="ps-text-lead">
+              By accessing the PageStack catalog, you acknowledge and agree to our content governance standard:
+            </p>
+    
+            <div class="ps-info-grid">
+              <div class="ps-info-item">
+                <i class="bi bi-journal-text ps-info-icon"></i>
+                <div>
+                  <strong>Open Access Index</strong>
+                  <p>Resources indexed are sourced from public domain archives, institutional open-access papers, and author-approved publications.</p>
+                </div>
+              </div>
+    
+              <div class="ps-info-item">
+                <i class="bi bi-patch-check ps-info-icon"></i>
+                <div>
+                  <strong>Rights & Intellectual Property</strong>
+                  <p>All trademarks, author names, and literary contents remain the exclusive property of their respective copyright holders.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Footer Actions -->
+          <div class="ps-modal-footer">
+            <label class="ps-checkbox-label">
+              <input 
+                type="checkbox" 
+                class="ps-checkbox" 
+                [(ngModel)]="dontShowAgain"
+              >
+              <span>Don't remind me on this device</span>
+            </label>
+    
+            <div class="ps-button-group">
+              <button type="button" class="ps-btn-secondary" (click)="dismissModal()">
+                Decline
+              </button>
+              <button type="button" class="ps-btn-primary" (click)="acceptDisclaimer()">
+                I Agree & Continue
+              </button>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+}

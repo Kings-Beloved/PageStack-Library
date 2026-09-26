@@ -1,0 +1,123 @@
+/* --- Brand Section --- */
+.brand-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.gold-accent {
+  color: #D4AF37;
+}
+
+.brand-description {
+  color: #a1a1aa;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* --- Section Headings --- */
+.footer-heading {
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.footer-subtext {
+  color: #a1a1aa;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* --- Links & Navigation --- */
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: #a1a1aa;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: #D4AF37;
+}
+
+/* --- Social Buttons --- */
+.btn-footer-social {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background-color: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #a1a1aa;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-footer-social:hover {
+  background-color: #D4AF37;
+  color: #0d0e12;
+  border-color: #D4AF37;
+}
+
+/* --- Form Controls --- */
+.footer-input {
+  background-color: #141414 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  font-size: 0.875rem;
+}
+
+.footer-input::placeholder {
+  color: #71717a;
+}
+
+.footer-input:focus {
+  box-shadow: none !important;
+  border-color: #D4AF37 !important;
+}
+
+.btn-gold-action {
+  background-color: #D4AF37;
+  color: #0d0e12;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-gold-action:hover {
+  background-color: #e5be3b;
+  color: #0d0e12;
+}
+
+/* --- Legal Section --- */
+.footer-copyright {
+  color: #71717a;
+}
+
+.footer-legal-link {
+  color: #71717a;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.15s ease-in-out;
+}
+
+.footer-legal-link:hover {
+  color: #D4AF37;
+}
+
+.site-footer {
+  background-color: #14161d !important;
+  border-top: 1px solid #D4AF37 !important;
+}
