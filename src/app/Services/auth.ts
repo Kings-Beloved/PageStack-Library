@@ -10,11 +10,11 @@ export class Auth {
     private http = inject(HttpClient);
 
     createUser(data:any){
-        return this.http.post('http://localhost/PageStack/auth/createUser', data)
+        return this.http.post('https://pagestack.onrender.com/auth/createUser', data)
     }
     
     loginUser(data:any){
-        return this.http.post('http://localhost/PageStack/auth/loginUser', data)
+        return this.http.post('https://pagestack.onrender.com/auth/loginUser', data)
     }
 
     logOut(){
