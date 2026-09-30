@@ -42,7 +42,7 @@ Occupation: new FormControl()
 
   userData:any;
   result:any;
-  message = signal('');
+  message = signal<string | null>('');
 
   visiblePassword = false
   displayPassword(){
@@ -90,6 +90,6 @@ Occupation: new FormControl()
 
 
   clearMessage(): void {
-  this.message.set('');   
+  this.message.set(null);   
 }
 }
